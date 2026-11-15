@@ -339,50 +339,40 @@ function SectionHeading({ eyebrow, children }: { eyebrow?: string; children: Rea
   );
 }
 
-function EventLocation({ event, className }: { event: Celebration; className: string }) {
-  return (
-    <div className={`event-location ${className}`}>
-      <span className="event-venue">{event.venue}</span>
-      <span className="event-address">{event.address}</span>
-      <div className="event-actions">
-        <a className="button button-outline focus-ring" href={event.mapUrl} target="_blank" rel="noreferrer">
-          <MapPin /> Directions
-        </a>
-      </div>
-    </div>
-  );
-}
-
 function EventCard({ event, index }: { event: Celebration; index: number }) {
   return (
     <motion.article
       id={event.id}
-      className={`event-card scene-${event.scene}`}
+      className="event-card mobile-function-card"
       initial={{ opacity: 0, y: 36 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.8, delay: index * 0.08 }}
     >
-      <div className="event-portrait">
-      <img src={event.image} alt={event.id === "wedding" ? "Gold floral arch with Telugu wedding ritual offerings, mangalsutra, brass lamps and silk" : "Gold floral arch with jasmine, roses, candle lanterns and reception silk drapery"} loading="lazy" decoding="async" width={1024} height={1536} />
-      <div className="event-content">
-        <Monogram className="event-monogram" />
-        <span className="event-number">Sanjusha &amp; Santosh · Celebration {String(index + 1).padStart(2, "0")}</span>
-        <h3>{event.shortName}</h3>
-        <p className="event-subtitle">{event.title.split(" — ")[1]}</p>
-        <div className="event-details">
-          <strong>{event.dateLabel}</strong>
-          <span>{event.timeLabel}</span>
-          {event.phereTime && <span>Phere: {event.phereTime}</span>}
+      <div className="mobile-function-art">
+        <img src={event.image} alt="" loading="lazy" decoding="async" width={1024} height={1536} />
+        <div className="mobile-function-copy">
+          <p className="mobile-function-kicker">Sanjusha &amp; Santosh · Celebration {String(index + 1).padStart(2, "0")}</p>
+          <h3>{event.shortName}</h3>
+          <p className="mobile-function-subtitle">{event.title.split(" — ")[1]}</p>
+          <div className="mobile-function-schedule">
+            <p>{event.dateLabel}</p>
+            <p>{event.id === "wedding" ? "Sumuhurtham · 9:12 a.m." : event.timeLabel}</p>
+            {event.id === "wedding" && <p className="mobile-function-lagnam">Dhanur Lagnam</p>}
+          </div>
         </div>
       </div>
+      <div className="mobile-function-location">
+        <h4>{event.venue}</h4>
+        <p className="mobile-function-address">{event.address}</p>
+        <a className="button button-outline focus-ring" href={event.mapUrl} target="_blank" rel="noreferrer" aria-label={`Directions to ${event.venue}`}>
+          <MapPin /> Directions
+        </a>
+        <p className="mobile-function-note">{event.supportingLine}</p>
       </div>
-      <EventLocation event={event} className="event-location-below" />
-      <p className="event-line">{event.supportingLine}</p>
     </motion.article>
   );
 }
-
 type RSVPData = {
   name: string;
   attendance: "yes" | "no";

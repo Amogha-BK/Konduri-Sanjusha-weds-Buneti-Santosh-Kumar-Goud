@@ -1834,3 +1834,75 @@ footer { padding-bottom: calc(6rem + env(safe-area-inset-bottom, 0px)); }
   .hero-monogram { width: 170px; }
   .opening-logo-button { width: clamp(100px, 25vw, 130px); }
 }
+
+/* Keep every ceremony detail clear of the illustrated ritual objects. */
+.event-card .event-content { inset: 20% 12% 40%; gap: 0.6rem; }
+.event-card .event-content > * { flex-shrink: 0; max-width: 100%; }
+.event-card .event-monogram { width: 68px; min-width: 0; max-width: 22%; margin-bottom: 0.35rem; }
+.event-card .event-number { color: #58432c; font-size: clamp(9px, 2.2cqi, 12px); line-height: 1.6; text-wrap: balance; }
+.event-card h3 { color: #79172d; font-size: clamp(27px, 7cqi, 40px); line-height: 1.15; margin: 0; }
+.event-card .event-subtitle { color: #60432c; font-size: clamp(18px, 4.5cqi, 25px); line-height: 1.35; margin: 0; }
+.event-card .event-schedule { width: auto; margin: 0 1.5rem; padding: 1.4rem 0; border-top: 0; border-bottom: 1px solid #c9aa6b; gap: 0.6rem; font: 400 clamp(14px, 3.2cqi, 17px)/1.7 var(--font-body); color: #403127; text-align: center; }
+.event-card .event-schedule strong, .event-card .event-schedule span { display: block; width: 100%; max-width: 100%; white-space: normal; overflow-wrap: anywhere; text-wrap: balance; }
+.event-card .event-schedule span { color: #79172d; }
+.monogram, .opening-logo-button img { mix-blend-mode: normal; }
+@media (max-width: 600px) {
+  .event-card .event-content { inset: 20% 12% 40%; padding: 0; gap: 0.45rem; }
+  .event-card .event-schedule { margin-inline: 1rem; }
+}
+
+/* The wedding card grows with its text; decorations cannot cover the schedule. */
+.scene-fire .event-portrait { display: grid; isolation: isolate; }
+.scene-fire .event-portrait > img { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; aspect-ratio: auto; object-fit: fill; }
+.scene-fire.event-card .event-content { position: relative; inset: auto; display: flex; width: 100%; max-width: none; padding: clamp(90px, 24cqi, 130px) 12% clamp(125px, 35cqi, 185px); gap: 0.8rem; }
+.scene-fire.event-card .event-monogram { width: 70px; max-width: none; }
+.scene-fire.event-card .event-number { font-size: 11px; line-height: 1.7; letter-spacing: 0.04em; }
+.scene-fire.event-card h3 { font-size: clamp(32px, 8cqi, 42px); color: #70152a; line-height: 1.15; }
+.scene-fire.event-card .event-subtitle { font-size: clamp(20px, 5cqi, 26px); color: #533b29; }
+.scene-fire.event-card .wedding-schedule { width: 100%; margin: 0.5rem 0 0; padding: 1.2rem 0; border-top: 1px solid #b69759; border-bottom: 1px solid #b69759; gap: 0.65rem; font-size: clamp(16px, 3.7cqi, 19px); line-height: 1.65; }
+.scene-fire.event-card .wedding-schedule strong { color: #30251e; }
+.scene-fire.event-card .wedding-schedule span { color: #70152a; }
+.scene-fire.event-card .wedding-lagnam { font-family: var(--font-display); font-size: 1.35em; font-style: italic; font-weight: 600; }
+
+/* Finished function stationery carries all invitation copy inside the image. */
+.function-image-card { display: block; }
+.function-image-card > .finished-function-image { position: static; display: block; z-index: auto; inset: auto; width: 100%; height: auto; aspect-ratio: 2 / 3; object-fit: contain; }
+.function-directions { display: flex; justify-content: center; padding: 1.25rem; background: #fbf5e9; }
+.function-directions .button { min-width: 180px; min-height: 44px; color: #60452a; background: #fffaf1; font-size: 11px; }
+
+.function-directions { flex-direction: column; align-items: center; gap: 0.7rem; text-align: center; padding: 1.5rem; }
+.function-venue { color: #79172d; font: 600 clamp(22px, 5cqi, 28px)/1.3 var(--font-display); }
+.function-address { max-width: 380px; color: #403127; font: 400 15px/1.75 var(--font-body); text-wrap: balance; }
+.function-directions .button { margin-top: 0.4rem; }
+
+/* Compact centered invitation copy is part of the artwork; the map link stays live. */
+.function-image-card { position: relative; }
+.function-image-card .function-directions { position: absolute; inset: 65% 0 auto; display: flex; padding: 0; background: transparent; }
+.function-image-card .function-directions .button { min-width: 110px; min-height: 36px; margin: 0; padding: 0.6rem 1rem; font-size: clamp(9px, 2.1cqi, 11px); letter-spacing: 0.08em; background: #fff9ec; border-color: #98702b; }
+.function-image-card .function-directions .button svg { width: 12px; height: 12px; }
+@media (max-width: 600px) {
+  .function-image-card .function-directions .button { min-height: 44px; }
+}
+
+/* Phone reference: artwork and ceremony copy above a separate venue panel. */
+.mobile-function-card { display: block; border: 1px solid #d5c5a3; border-radius: 2px; background: #fcf6eb; }
+.mobile-function-art { position: relative; container-type: inline-size; }
+.mobile-function-art > img { display: block; width: 100%; height: auto; aspect-ratio: 2 / 3; object-fit: contain; }
+.mobile-function-copy { position: absolute; inset: 31% 10% 28%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: clamp(8px, 2cqi, 14px); color: #423626; text-align: center; }
+.mobile-function-kicker { font: 500 clamp(9px, 2.4cqi, 12px)/1.5 var(--font-body); letter-spacing: 0.045em; text-transform: uppercase; text-wrap: balance; }
+.mobile-function-card .mobile-function-copy h3 { max-width: 100%; margin: 0; font: 400 clamp(27px, 8cqi, 44px)/1.12 var(--font-display); letter-spacing: -0.025em; color: #603a27; }
+.mobile-function-subtitle { font: italic 400 clamp(18px, 5cqi, 27px)/1.3 var(--font-display); color: #6b5138; }
+.mobile-function-schedule { width: 100%; margin-top: clamp(5px, 1.5cqi, 10px); padding: clamp(10px, 3cqi, 18px) 0; border-block: 1px solid #cfb888; font: 400 clamp(13px, 3.6cqi, 18px)/1.65 var(--font-body); }
+.mobile-function-schedule > p:first-child { font-weight: 600; }
+.mobile-function-schedule > p + p { margin-top: clamp(6px, 2cqi, 12px); }
+.mobile-function-schedule > .mobile-function-lagnam { margin-top: 2px; font-family: var(--font-display); font-size: 1.1em; font-style: italic; }
+.mobile-function-location { padding: clamp(20px, 5cqi, 32px); text-align: center; }
+.mobile-function-location h4 { color: #40392b; font: 500 clamp(25px, 6.5cqi, 34px)/1.3 var(--font-display); }
+.mobile-function-address { margin: 12px auto 22px; max-width: 440px; color: #514a3f; font: 400 clamp(14px, 3.7cqi, 18px)/1.8 var(--font-body); text-wrap: balance; }
+.mobile-function-location > .button { width: 100%; min-height: 48px; color: #504733; background: #fffaf2; border-color: #9c8753; font-size: 12px; letter-spacing: 0.1em; }
+.mobile-function-note { margin-top: 22px; color: #6d604c; font: italic 400 clamp(20px, 5.4cqi, 27px)/1.55 var(--font-display); text-align: left; text-wrap: pretty; }
+@media (max-width: 600px) {
+  .events { width: calc(100% - 28px); max-width: 100%; gap: 28px; }
+  .mobile-function-location { padding: 20px 18px 24px; }
+  .mobile-function-copy { inset: 31% 9% 28%; }
+}
