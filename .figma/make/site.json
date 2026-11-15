@@ -1,14 +1,14 @@
 {
-  "title": "Shristi & Harsh",
-  "description": "Join Shristi and Harsh for the Mehndi Ceremony, Haldi Ceremony and Wedding Ceremony on 9-10 December 2026 in Indirapuram, Ghaziabad, Uttar Pradesh. Celebration times, family details and venue directions.",
-  "icons": {
-    "icon": "/assets/shristi-harsh-monogram.png"
-  },
-  "robots": {
-    "index": false
-  },
-  "accessibility": {
-    "addBypassLinks": false,
-    "ignoreReducedMotion": false
-  }
+    "title":  "Konduri Family Invitation | Sanjusha \u0026 Santosh",
+    "description":  "Konduri family invites you to the wedding of Konduri Sanjusha and Buneti Santosh Kumar Goud on 25 November 2026 at 9:12 a.m. in Hyderabad, followed by the reception on 29 November from 7 p.m. Invited by Konduri Rohit and Pranaya.",
+    "icons":  {
+                  "icon":  "/assets/sanjusha-santosh-monogram.png"
+              },
+    "robots":  {
+                   "index":  false
+               },
+    "accessibility":  {
+                          "addBypassLinks":  false,
+                          "ignoreReducedMotion":  false
+                      }
 }

@@ -1,78 +1,58 @@
-﻿export type Celebration = {
-  id: "mehndi" | "haldi" | "wedding";
-  shortName: string;
-  title: string;
-  dateLabel: string;
-  timeLabel: string;
-  venue: string;
-  address: string;
-  supportingLine: string;
-  start: string;
-  calendarTitle: string;
-  image: string;
-  scene: "lanterns" | "fire" | "candlelight";
-  mapUrl: string;
-  phereTime?: string;
+export type Celebration = {
+  id: "wedding" | "reception";
+  shortName: string; title: string; dateLabel: string; timeLabel: string;
+  venue: string; address: string; supportingLine: string; start: string;
+  calendarTitle: string; image: string; scene: "fire" | "candlelight";
+  mapUrl: string; phereTime?: string;
 };
 const maps = (address: string) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
-const weddingVenue = {
-  name: "The Grand Piazza",
-  address: "Lawn 1, CISF Road, Indirapuram, Ghaziabad",
-};
+const weddingVenue = { name: "PSR SLOKA CONVENTION", address: "ORR Exit No. 13, Kongarkalan, Ibrahimpatnam, Hyderabad" };
 const weddingMap = maps(`${weddingVenue.name}, ${weddingVenue.address}`);
-const homeAddress = "26 C, Heritage Divine, Gyan Khand 2, Indirapuram, Ghaziabad, Uttar Pradesh";
-const mehndiAddress = "Golden Rivaah Party Hall, Gyan Khand-2, Indirapuram, Ghaziabad, Uttar Pradesh";
-const brideParents = "D/O Smt. Asha Devi & Sh. Jagat Singh Chauhan";
-const groomParents = "S/O Smt. Renu Chaudhary & Sh. Dhanveer Singh";
+const receptionVenue = { name: "Shree Manthra Convention", address: "ORR Exit No. 15, Pedda Golkonda, R.R. Dist." };
+const brideParents = "Only daughter of Late Konduri Ramesh and Konduri Sujatha";
+const groomParents = "Only son of Sri Buneti Krishna Goud & Smt. Buneti Sarala";
 export const invitationConfig = {
+  familyName: "Konduri",
+  familyInvitation: "Konduri’s family invitation",
   couple: {
-    first: "Shristi",
-    second: "Harsh",
-    firstParents: `Shristi · ${brideParents}`,
-    secondParents: `Harsh · ${groomParents}`,
-    brideParents,
-    groomParents,
-    groomGrandparents: "Grandson of Smt. Kamla Devi & Sh. Pramveer Singh",
+    first: "Sanjusha", second: "Santosh",
+    firstFull: "Konduri Sanjusha", secondFull: "Buneti Santosh Kumar Goud",
+    firstParents: `Konduri Sanjusha · ${brideParents}`,
+    secondParents: `Buneti Santosh Kumar Goud · ${groomParents}`,
+    brideParents, groomParents, groomGrandparents: "",
   },
-  weddingLabel: "10 December 2026 · Indirapuram",
-  countdownTarget: "2026-12-10T00:00:00+05:30",
-  memorialLine: "With the blessings and in loving memory of Late Smt. Jagdai Devi & Late Veer Singh Chauhan",
-  invitationLine: "Shristi & Harsh cordially invite you to grace the occasion of their Wedding Ceremony with your presence and blessings.",
-  blessingLine: "We look forward to your gracious presence and blessings on this joyous occasion.",
-  homeAddress,
-  hosts: "Mrs. & Mr. Jagat Singh Chauhan",
-  rsvp: "Smt. Asha Devi & Sh. Jagat Singh Chauhan",
-  wishesFrom: "All Relatives & Friends",
-  monogram: "/assets/shristi-harsh-monogram.png",
-  artwork: "/assets/shristi-harsh-celebration.png",
+  weddingLabel: "25 November 2026 · Hyderabad",
+  countdownTarget: "2026-11-25T09:12:00+05:30",
+  memorialLine: "With the blessings and in loving memory of Late Konduri Ramesh",
+  invitationLine: "We solicit your gracious presence on the occasion of the marriage of our sister.",
+  blessingLine: "Join us with your love and blessings. Sumuhurtham: 9:12 a.m. · Dhanur Lagnam.",
+  homeAddress: "",
+  hosts: "Sri Konduri Rohit and Pranaya",
+  rsvp: "Konduri Rohit and Pranaya",
+  wishesFrom: "Near & Dear",
+  monogram: "/assets/sanjusha-santosh-monogram.png",
+  artwork: "/assets/sanjusha-santosh-wedding.png",
   venue: { ...weddingVenue, mapUrl: weddingMap },
-  contacts: ["9899577693", "9582317003", "9899012987"],
+  contacts: [] as string[],
   optional: { travel: "", stay: "", contact: "", musicUrl: "/assets/kudmayi.mp3", whatsappHostNumber: "" },
   celebrations: [
     {
-      id: "mehndi", shortName: "Mehndi Ceremony", title: "Mehndi Ceremony — Rang Pyaar Ke",
-      dateLabel: "Wednesday, 9 December 2026", timeLabel: "8:00 p.m.",
-      venue: "Golden Rivaah Party Hall", address: "Gyan Khand-2, Indirapuram, Ghaziabad (U.P.)",
-      supportingLine: "Henna-stained hands, music and a little magic. Let the celebrations begin!",
-      start: "2026-12-09T20:00:00+05:30", calendarTitle: "Shristi & Harsh · Mehndi Ceremony",
-      image: "/assets/mehndi-floral-arch-v2.png", scene: "lanterns", mapUrl: maps(mehndiAddress),
-    },
-    {
-      id: "haldi", shortName: "Haldi Ceremony", title: "Haldi Ceremony — Sunehre Pal",
-      dateLabel: "Thursday, 10 December 2026", timeLabel: "11:00 a.m.",
-      venue: "Bride’s Residence", address: homeAddress,
-      supportingLine: "A touch of turmeric, a shower of petals and blessings for a golden beginning.",
-      start: "2026-12-10T11:00:00+05:30", calendarTitle: "Shristi & Harsh · Haldi Ceremony",
-      image: "/assets/haldi-floral-arch-v2.png", scene: "candlelight", mapUrl: maps(homeAddress),
-    },
-    {
-      id: "wedding", shortName: "Wedding Ceremony", title: "Shubh Vivaah — A Promise of Forever",
-      dateLabel: "Thursday, 10 December 2026", timeLabel: "7:00 p.m.",
+      id: "wedding", shortName: "Wedding Ceremony", title: "Shubh Vivaah — A Sacred Beginning",
+      dateLabel: "Wednesday, 25 November 2026", timeLabel: "Sumuhurtham · 9:12 a.m. · Dhanur Lagnam",
       venue: weddingVenue.name, address: weddingVenue.address,
-      supportingLine: "Sacred vows, two hearts and the love of everyone who brought us here.",
-      start: "2026-12-10T19:00:00+05:30", calendarTitle: "Shristi & Harsh · Wedding Ceremony",
-      image: "/assets/wedding-floral-arch-v2.png", scene: "fire", mapUrl: weddingMap,
+      supportingLine: "Sacred vows, family blessings and the beginning of our forever.",
+      start: "2026-11-25T09:12:00+05:30", calendarTitle: "Sanjusha & Santosh · Wedding Ceremony",
+      image: "/assets/sanjusha-santosh-wedding-stationery.png", scene: "fire", mapUrl: weddingMap,
+    },
+    {
+      id: "reception", shortName: "Wedding Reception", title: "Reception — An Evening of Togetherness",
+      dateLabel: "Sunday, 29 November 2026", timeLabel: "7:00 p.m. onwards",
+      venue: receptionVenue.name, address: receptionVenue.address,
+      supportingLine: "An evening of warm wishes, joyful company and a lifetime of memories.",
+      start: "2026-11-29T19:00:00+05:30", calendarTitle: "Sanjusha & Santosh · Wedding Reception",
+      image: "/assets/sanjusha-santosh-reception-stationery.png", scene: "candlelight", mapUrl: maps(`${receptionVenue.name}, ${receptionVenue.address}`),
     },
   ] satisfies Celebration[],
   calendar: { timezone: "Asia/Kolkata" },
 } as const;
+
