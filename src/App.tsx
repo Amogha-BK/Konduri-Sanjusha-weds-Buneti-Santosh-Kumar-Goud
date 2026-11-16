@@ -689,8 +689,8 @@ export default function App() {
             </h1>
             {parentsPresent && (
               <div className="parent-lines">
-                {config.couple.firstParents && <p>{config.couple.firstParents}</p>}
-                {config.couple.secondParents && <p>{config.couple.secondParents}</p>}
+                {config.couple.firstParents && <p><strong className="font-bold text-[#79172d]">{config.couple.firstFull}</strong> · {config.couple.brideParents}</p>}
+                {config.couple.secondParents && <p><strong className="font-bold text-[#79172d]">{config.couple.secondFull}</strong> · {config.couple.groomParents}</p>}
               </div>
             )}
             <div className="hero-date">{config.weddingLabel}</div>
