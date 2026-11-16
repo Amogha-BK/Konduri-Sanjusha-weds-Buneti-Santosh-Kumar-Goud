@@ -731,11 +731,6 @@ export default function App() {
           </motion.div>
         </section>
 
-        <section className="countdown-section">
-          <SectionHeading eyebrow="Until we celebrate">Our forever begins in</SectionHeading>
-          <Countdown />
-        </section>
-
         <section className="celebrations-section" id="celebrations">
           <Monogram className="celebrations-monogram" />
           <p className="programme-invocation">॥ Shri Ganeshaya Namah ॥</p>
@@ -745,6 +740,11 @@ export default function App() {
               <EventCard key={event.id} event={event} index={index} />
             ))}
           </div>
+        </section>
+
+        <section className="countdown-section">
+          <SectionHeading eyebrow="Until we celebrate">Our forever begins in</SectionHeading>
+          <Countdown />
         </section>
 
         <section className="venue-section" id="venue">
